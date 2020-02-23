@@ -56,7 +56,74 @@
                   </ul>
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="小食">小食</el-tab-pane>
+              <el-tab-pane label="小食">
+                <el-col :span="17">
+                  3333333333333333333333333333333
+                  <div>
+                    <div class="enterpriseGovernMessage">
+                      <!--<ul v-for="MessageItems in MessageList" :key="MessageItems.id" :model="detail" class="enterpriseGovernMessage">-->
+                        <!--<li v-for="(item,index) in MessageItems.messageList">-->
+                          <!--<div v-if="0 === 0" class="user-part">-->
+                            <!--问你111111111111112222-->
+                            <!--<span class="text-purple">问:</span>-->
+                            <!--<p class="m-t-sm answer-txt">-->
+                              <!--你是谁?-->
+                            <!--</p>-->
+                            <!--&lt;!&ndash;LjTODO&ndash;&gt;-->
+                            <!--<el-button :key="item.id" class="mui-btn mui-btn-answer mui-btn-sm m-r" @click="reply(item.id)">-->
+                              <!--&lt;!&ndash;回复&ndash;&gt;-->
+                              <!--&lt;!&ndash;</el-button>&ndash;&gt;-->
+                              <!--<el-button-->
+                                <!--v-show="nowId===item.id"-->
+                                <!--type="button"-->
+                                <!--class="mui-btn mui-btn-primary1 mui-btn-outlined mui-btn-xs mui-pull-right"-->
+                                <!--@click="askBusWithParent(item.id)"-->
+                              <!--&gt;-->
+                                <!--保存-->
+                              <!--</el-button>-->
+                              <!--<el-input v-show="nowId===item.id" v-model="userAskMsgParent" type="textarea" class="m-b-none" name="" cols="30" rows="5" placeholder="请输入您的问题"/>-->
+                            <!--</el-button>-->
+                          <!--</div>-->
+                          <!--<div v-else class="business-part">-->
+                            <!--<p>-->
+                              <!--<span class="tag tag-success tag-fill">本人</span>-->
+                              <!--<span class="m-r-xs name"/>-->
+                              <!--<span class="text-purple">回复:</span>-->
+                            <!--</p>-->
+                            <!--<div class="m-t-sm answer-txt">-->
+                              <!--我是前端-->
+                              <!--<p>2020/2/23</p>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</li>-->
+                      <!--</ul>-->
+                      <ul>
+                        <li>
+                          你是？
+                        </li>
+                        <span>
+                          <button :key="2" @click="huifu">
+                          回复
+                            <el-form>
+                              <el-input v-show="key===curentkey" type="textarea" v-model="userAskMsgParent">hi，我来啦</el-input>
+                              <button v-show="key===curentkey" @click="baocun">保存</button>
+                            </el-form>
+                          {{ userAskMsgParent3232 }}
+                          </button>
+                        </span>
+                        <li>
+                          我是小可爱
+                        </li>
+                        <li>
+                          我也是小可爱
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </el-col>
+              </el-tab-pane>
               <el-tab-pane label="饮料">饮料</el-tab-pane>
               <el-tab-pane label="套餐">套餐</el-tab-pane>
             </el-tabs>
@@ -74,6 +141,9 @@
       name: "Pos",
       data(){
         return{
+          curentkey: 2,
+          key:2,
+          flag:false,
           tableData:[{
             goodsName: '可口可乐',
             price: 8,
@@ -186,14 +256,34 @@
               goodsName:'香脆鸡柳',
               price:17
             }
-          ]
+          ],
+          MessageList:{
+          },
+          userAskMsgParent: '',
+          userAskMsgParent3232: null
         }
       },
       mounted:function(){
           var orderHeight = document.body.clientHeight;
           // console.log(orderHeight);
-          document.getElementById('order-list').style.height = orderHeight+'px';
+          // document.getElementById('order-list').style.height = orderHeight+'px';
+      },
+      methods:{
+        huifu(){
+          this.key = 2
+          if(this.key === this.curentkey){
+            console.log(3333333)
+          }else{
+            console.log(5555555)
+          }
+        },
+        baocun(){
+          // this.userAskMsgParent = 2
+          this.userAskMsgParent3232 = this.userAskMsgParent + '成功'
+          console.log(this.userAskMsgParent3232)
+        }
       }
+
     }
 </script>
 
